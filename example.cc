@@ -8,13 +8,13 @@
 
 int main() {
   biu::Bitcask db;
-  biu::Options options = {1024, 1024, false, false};
+  biu::Options options;
   biu::Status s = db.Open(options, "mydb");
   if (!s.ok()) {
     std::cout << s.ToString() << std::endl;
   }
 
-  std::string value (256, 'x');
+  std::string value (128, 'x');
   s = db.Put("key", value);
   if (!s.ok()) {
     std::cout << s.ToString() << std::endl;
