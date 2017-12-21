@@ -12,17 +12,20 @@ int main() {
   biu::Status s = db.Open(options, "mydb");
   if (!s.ok()) {
     std::cout << s.ToString() << std::endl;
+    return 0;
   }
 
   std::string value (128, 'x');
   s = db.Put("key", value);
   if (!s.ok()) {
     std::cout << s.ToString() << std::endl;
+    return 0;
   }
   std::string get_value;
   s = db.Get("key", &get_value);
   if (!s.ok()) {
     std::cout << s.ToString() << std::endl;
+    return 0;
   } else {
     std::cout << "key: " << get_value << std::endl;
   }
@@ -30,11 +33,13 @@ int main() {
   s = db.Delete("key");
   if (!s.ok()) {
     std::cout << s.ToString() << std::endl;
+    return 0;
   }
   std::string del_value;
   s = db.Get("key", &del_value);
   if (!s.ok()) {
     std::cout << s.ToString() << std::endl;
+    return 0;
   } else {
     std::cout <<"key: " << del_value << std::endl;
   }

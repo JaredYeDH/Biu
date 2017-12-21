@@ -25,6 +25,7 @@ const std::string IndexDirectory = "/index";
 const std::string DataDirectory = "/db";
 const std::string DataFileName = "data";
 const std::string HintFileName = "hint";
+const std::string LOCK = "/LOCK";
 
 // Key-value
 struct BitcaskData {

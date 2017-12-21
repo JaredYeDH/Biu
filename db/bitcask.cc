@@ -18,7 +18,6 @@ Bitcask::Bitcask()
 
 Bitcask::~Bitcask() {
   this->Close();
-  delete db_lock_;
   delete env_;
 }
 
@@ -52,7 +51,7 @@ Status Bitcask::Init() {
   }
 
   if (options_.read_write) {
-    s = env_->LockFile(dbname_, &db_lock_);
+    s = env_->LockFile(dbname_ + LOCK, &db_lock_);
     if (!s.ok()) {
       return s; 
     }
