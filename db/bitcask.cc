@@ -259,11 +259,7 @@ Status Bitcask::Retrieve(const std::string& key,
   file_stream.read(read_value, value_len);
   value->append(read_value, static_cast<unsigned long>(value_len));
 
-  if (read_key == key) {
-    return s; 
-  } else {
-    return s.IOError("Data position incorrect.");
-  }
+  return s;
 }
 
 Status Bitcask::LoadIndex(const std::string &file) {
