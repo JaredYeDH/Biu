@@ -1,0 +1,12 @@
+sudo: false
+lanauage: cpp
+os:
+  - linux 
+  - os x
+compiler:
+  - clang
+  - gcc
+osx_image: xcode8
+
+script:
+  make && make example
