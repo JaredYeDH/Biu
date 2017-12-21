@@ -46,6 +46,11 @@ struct BitcaskIndex {
 };
 
 struct Options {
+  Options() :
+    max_file_size(4096),
+    max_index_size(4096),
+    read_write(true) { }
+
   // The size of data file
   size_t max_file_size;
  
@@ -55,11 +60,6 @@ struct Options {
   // If this process is going to be a writer and not just a reader
   bool read_write;
 
-  // If this writer would prefer to sync the write file after every write 
-  // operation
-  bool sync_on_put;
-
-  //Options();
 };
 
 class Status;

@@ -306,10 +306,10 @@ Status Env::LockFile(const std::string& name, FileLock** lock) {
   Status s;
   int fd = ::open(name.c_str(), O_RDWR | O_CREAT, 0644);
   if (fd < 0) {
-    return s.IOError("Lock file failed."); 
+    return s.IOError("Lock file failed." + std::to_string(errno));
   } else if (LockOrUnlock(fd, true) == -1) {
     ::close(fd);
-    return s.IOError("Lock file failed."); 
+    return s.IOError("Lock file failed." + std::to_string(errno));
   } else {
     FileLock* my_lock = new FileLock;
     my_lock->fd_ = fd;
