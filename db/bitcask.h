@@ -10,7 +10,7 @@
 #define SRC_BITCASK_H_
 
 #include <iostream>
-#include <string>
+#include <cstring>
 #include <unordered_map>
 #include <vector>
 #include <fstream>
